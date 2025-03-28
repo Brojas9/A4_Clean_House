@@ -1,34 +1,67 @@
-body {
+body.container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f8;
+    background-color: #f6f9fc;
+    margin: 0;
     padding: 2rem;
-    color: #333;
-}
-
-h1 {
     color: #2c3e50;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
-li {
-    background-color: #fff;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+h2 {
+    margin-bottom: 1.5rem;
 }
 
-a {
-    color: #2980b9;
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+}
+
+.btn {
+    background-color: #3498db;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.link {
+    color: #3498db;
     text-decoration: none;
-    margin-left: 10px;
+    font-size: 0.95rem;
 }
 
-a:hover {
+.link:hover {
     text-decoration: underline;
 }
 
