@@ -12,6 +12,8 @@
                 <strong>{{ request.customer_name }}</strong> - {{ request.service_date }} - {{ request.email }}
                 <br>{{ request.address }}
                 <br>{{ request.notes }}
+                <a href="{% url 'request_update' request.id %}">Edit</a> |
+                <a href="{% url 'request_delete' request.id %}">Delete</a>
             </li>
         {% empty %}
             <li>No cleaning requests available.</li>
