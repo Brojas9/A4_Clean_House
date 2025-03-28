@@ -1,16 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Confirm Deletion</title>
+    <title>Delete Request</title>
+    <link rel="stylesheet" href="{% static 'services/style.css' %}">
 </head>
-<body>
-    <h1>Delete Request</h1>
-    <p>Are you sure you want to delete the request for <strong>{{ request_instance.customer_name }}</strong>?</p>
-
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Yes, delete</button>
-        <a href="{% url 'request_list' %}">Cancel</a>
-    </form>
+<body class="container">
+    <div class="card danger">
+        <h2>Delete Request</h2>
+        <p>Are you sure you want to delete the request for <strong>{{ object.customer_name }}</strong>?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes, delete</button>
+            <a href="{% url 'request_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
 </body>
 </html>
+
