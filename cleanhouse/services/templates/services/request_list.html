@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cleaning Requests</title>
+</head>
+<body>
+    <h1>All Cleaning Requests</h1>
+    <p><a href="{% url 'request_create' %}">Submit a New Request</a></p>
+    <ul>
+        {% for request in requests %}
+            <li>
+                <strong>{{ request.customer_name }}</strong> - {{ request.service_date }} - {{ request.email }}
+                <br>{{ request.address }}
+                <br>{{ request.notes }}
+            </li>
+        {% empty %}
+            <li>No cleaning requests available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

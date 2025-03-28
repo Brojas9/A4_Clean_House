@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Cleaning Request</title>
+</head>
+<body>
+    <h1>Submit a New Cleaning Request</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <p><a href="{% url 'request_list' %}">Back to list</a></p>
+</body>
+</html>
