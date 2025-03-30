@@ -39,4 +39,9 @@ def request_delete(request, pk):
     if request.method == 'POST':
         request_instance.delete()
         return redirect('request_list')
-    return render(request, 'services/request_confirm_delete.html', {'request_instance': request_instance})
+    return render(request, 'services/request_confirm_delete.html', {'object': request_instance})
+
+# View to handle Main Page
+def main_page(request):
+    return render(request, 'services/main_page.html')
+
