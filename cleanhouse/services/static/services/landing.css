@@ -1,0 +1,64 @@
+body {
+    background: #f6faff;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.hero {
+    background: radial-gradient(circle at top, #d3eafd 0%, #6fb1fc 100%);
+    color: #000;
+    text-align: center;
+    padding: 150px 20px 100px;
+    border-bottom-left-radius: 50% 80%;
+    border-bottom-right-radius: 50% 80%;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 20px auto;
+    color: #222;
+}
+
+.btn-book {
+    background-color: #fcd94f;
+    color: #000;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.btn-book:hover {
+    background-color: #ffe167;
+    transform: scale(1.05);
+}
+
+.glove-left, .glove-right {
+    position: absolute;
+    top: 50%;
+    width: 450px;
+    transform: translateY(-20%);
+}
+
+.glove-left {
+    left: 0px;
+    width: 500px;
+}
+
+.glove-right {
+    right: 0px;
+}
+
+@media (max-width: 768px) {
+    .glove-left, .glove-right {
+        display: 150px;
+    }
+}

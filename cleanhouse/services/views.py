@@ -45,3 +45,6 @@ def request_delete(request, pk):
 def main_page(request):
     return render(request, 'services/main_page.html')
 
+# View to handle Back to Main Page
+def home(request):
+    return render(request, 'services/main_page.html')
