@@ -17,6 +17,8 @@
         <p>Our team uses the best equipment and products to deliver high-quality cleaning services.</p>
         <a href="{% url 'request_list' %}" class="btn btn-book">Book Cleaning</a>
     </section>
+
+
     <section class="gallery">
         <h2>Our Work</h2>
         <div class="gallery-grid">
@@ -30,6 +32,30 @@
             <img src="{% static 'services/images/clean8.jpg' %}" alt="Clean Example">
         </div>
     </section>
+
+    
+    <section class="services">
+        <h2>Cleaning Services</h2>
+        <div class="service-category">
+            <h3>Home General Cleaning</h3>
+            <ul>
+                <li>Deep cleaning kitchen</li>
+                <li>Deep cleaning bathroom</li>
+                <li>Deep cleaning garage</li>
+            </ul>
+        </div>
+        <div class="service-category">
+            <h3>Office General Cleaning</h3>
+            <ul>
+                <li>Deep cleaning kitchen</li>
+                <li>Deep cleaning bathroom</li>
+                <li>Windows interior</li>
+                <li>Deep dust</li>
+            </ul>
+        </div>
+        <p class="rate">Hourly Rate: <strong>$45 CAD</strong></p>
+    </section>
+    
     
     <!-- Lightbox Modal -->
     <div id="lightbox" onclick="closeLightbox()">

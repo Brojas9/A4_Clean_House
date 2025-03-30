@@ -68,6 +68,7 @@ body {
     text-align: center;
     padding: 50px 20px;
     background-color: #f6faff;
+    margin-bottom: 60px;
 }
 
 .gallery h2 {
@@ -124,3 +125,43 @@ body {
     font-size: 2rem;
     cursor: pointer;
 }
+
+.services {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    text-align: center;
+    
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+.service-category {
+    margin-bottom: 30px;
+}
+
+.service-category h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.service-category ul {
+    list-style-type: disc;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 400px;
+    text-align: left;
+}
+
+.service-category ul li {
+    margin: 5px 0;
+}
+
+.rate {
+    font-size: 1.2rem;
+    color: #444;
+}
+
