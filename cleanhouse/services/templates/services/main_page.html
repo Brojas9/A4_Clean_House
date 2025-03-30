@@ -13,8 +13,31 @@
         <img src="{% static 'services/glove-right.png' %}" alt="Glove Right" class="glove-right">
 
         <h1>WORRY-FREE <br> HOME CLEANING</h1>
-        <p>Our team uses only the best equipment and products to deliver high-quality home and office cleaning services.</p>
+        <p>Professional cleaning for homes, offices, and more.</p>
+        <p>Our team uses the best equipment and products to deliver high-quality cleaning services.</p>
         <a href="{% url 'request_list' %}" class="btn btn-book">Book Cleaning</a>
     </section>
+    <section class="gallery">
+        <h2>Our Work</h2>
+        <div class="gallery-grid">
+            <img src="{% static 'services/images/clean1.jpg' %}" alt="Clean Example">
+            <img src="{% static 'services/images/clean2.jpg' %}" alt="Clean Example">
+            <img src="{% static 'services/images/clean3.jpg' %}" alt="Clean Example">
+            <img src="{% static 'services/images/clean4.jpg' %}" alt="Clean Example">
+            <img src="{% static 'services/images/clean5.jpg' %}" alt="Clean Example">
+            <img src="{% static 'services/images/clean6.jpg' %}" alt="Clean Example">
+            <img src="{% static 'services/images/clean7.jpg' %}" alt="Clean Example">
+            <img src="{% static 'services/images/clean8.jpg' %}" alt="Clean Example">
+        </div>
+    </section>
+    
+    <!-- Lightbox Modal -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img id="lightbox-img" src="" alt="Preview">
+    </div>
+
+    <script src="{% static 'services/gallery.js' %}"></script>
+
 </body>
 </html>

@@ -19,11 +19,14 @@ from django.urls import path, include
 from django.shortcuts import redirect
 from django.conf import settings
 from django.conf.urls.static import static
+from services import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.main_page, name='main_page'), # main page as the default
     path('requests/', include('services.urls')),
-    path('', lambda request: redirect('request_list')),  # <--- This line redirects root to /requests/
+    
 ]
 
 if settings.DEBUG:

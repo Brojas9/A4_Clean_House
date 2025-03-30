@@ -8,10 +8,11 @@ body {
     background: radial-gradient(circle at top, #d3eafd 0%, #6fb1fc 100%);
     color: #000;
     text-align: center;
-    padding: 150px 20px 100px;
+    padding: 70px 20px 100px;
     border-bottom-left-radius: 50% 80%;
     border-bottom-right-radius: 50% 80%;
     position: relative;
+    margin-bottom: 0px; 
 }
 
 .hero h1 {
@@ -61,4 +62,65 @@ body {
     .glove-left, .glove-right {
         display: 150px;
     }
+}
+
+.gallery {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f6faff;
+}
+
+.gallery h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#lightbox img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 8px;
+}
+
+#lightbox .close {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
 }
