@@ -3,10 +3,39 @@ from .models import CleaningRequest
 from .forms import CleaningRequestForm
 from django.shortcuts import get_object_or_404
 
-# View to display all cleaning requests
-def request_list(request):
-    requests = CleaningRequest.objects.all()
-    return render(request, 'services/request_list.html', {'requests': requests})
+
+ADMIN_PASSWORD = 'NetworkingA4!'  # this must match exactly
+
+# Admin-only view to list all cleaning requests
+def request_list_admin(request):
+    if request.session.get('is_admin'):
+        requests = CleaningRequest.objects.all()
+        return render(request, 'services/request_list.html', {
+            'requests': requests,
+            'authenticated': True  
+        })
+    return render(request, 'services/request_list.html', {
+        'authenticated': False  # Show login form
+    })
+
+
+def admin_login(request):
+    error = None
+    if request.method == 'POST':
+        password = request.POST.get('password')
+        print("Entered password:", password)  # ← ADD THIS
+        print("Expected password:", ADMIN_PASSWORD)  # ← AND THIS
+
+        if password == ADMIN_PASSWORD:
+            request.session['is_admin'] = True
+            print("Login successful!")  # ← CHECK FOR THIS MESSAGE
+            return redirect('request_list_admin')
+        else:
+            print("Login failed.")  # ← CHECK FOR THIS MESSAGE
+            error = "Incorrect password. Try again."
+
+    return render(request, 'services/admin_login.html', {'error': error})
+
 
 # View to handle the form for creating a new request
 def request_create(request):
@@ -14,7 +43,7 @@ def request_create(request):
         form = CleaningRequestForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('request_list')  # Redirect after submission
+            return redirect('thank_you')  # Redirect to thank you page
     else:
         form = CleaningRequestForm()
 
@@ -48,3 +77,13 @@ def main_page(request):
 # View to handle Back to Main Page
 def home(request):
     return render(request, 'services/main_page.html')
+
+# thank_you view
+def thank_you(request):
+    return render(request, 'services/thank_you.html')
+
+
+# View to log out admin user
+def admin_logout(request):
+    request.session.pop('is_admin', None)
+    return redirect('main_page')  # Or use 'home' depending on your URL name
