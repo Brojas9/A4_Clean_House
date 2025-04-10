@@ -22,27 +22,36 @@
         {% endif %}
 
         {% if authenticated %}
-            <h1 class="mb-4 text-primary fw-bold">All Cleaning Requests</h1>
-            <a href="{% url 'main_page' %}" class="btn btn-outline-primary mb-3">← Back to Main Page</a>
-            <p><a class="btn btn-primary mb-3" href="{% url 'request_create' %}">Submit a New Request</a></p>
+    <h1 class="mb-4 text-primary fw-bold">All Cleaning Requests</h1>
+    <a href="{% url 'main_page' %}" class="btn btn-outline-primary mb-3">← Back to Main Page</a>
+    <p><a class="btn btn-primary mb-3" href="{% url 'request_create' %}">Book a New Request</a></p>
 
-            {% if requests %}
-                {% for request in requests %}
-                    <div class="card mb-3 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">{{ request.customer_name }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ request.service_date }} - {{ request.email }}</h6>
-                            <p class="card-text mb-1">{{ request.address }}</p>
-                            <p class="card-text">{{ request.notes }}</p>
-                            <a href="{% url 'request_update' request.id %}" class="btn btn-sm btn-outline-primary me-2">Edit</a>
-                            <a href="{% url 'request_delete' request.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
-                        </div>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <div class="alert alert-info">No cleaning requests available.</div>
-            {% endif %}
-        {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if requests %}
+        {% for request in requests %}
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ request.customer_name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ request.service_date }} - {{ request.email }}</h6>
+                    <p class="card-text mb-1">{{ request.address }}</p>
+                    <p class="card-text">{{ request.notes }}</p>
+                    <a href="{% url 'request_update' request.id %}" class="btn btn-sm btn-outline-primary me-2">Edit</a>
+                    <a href="{% url 'request_delete' request.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info">No cleaning requests available.</div>
+    {% endif %}
+    {% endif %}
 
     </div>
 </body>

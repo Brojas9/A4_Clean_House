@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import CleaningRequest
 from .forms import CleaningRequestForm
 from django.shortcuts import get_object_or_404
+from django.contrib import messages
 
 
 ADMIN_PASSWORD = 'NetworkingA4!'  # this must match exactly
@@ -23,15 +24,11 @@ def admin_login(request):
     error = None
     if request.method == 'POST':
         password = request.POST.get('password')
-        print("Entered password:", password)  # ← ADD THIS
-        print("Expected password:", ADMIN_PASSWORD)  # ← AND THIS
 
         if password == ADMIN_PASSWORD:
             request.session['is_admin'] = True
-            print("Login successful!")  # ← CHECK FOR THIS MESSAGE
             return redirect('request_list_admin')
         else:
-            print("Login failed.")  # ← CHECK FOR THIS MESSAGE
             error = "Incorrect password. Try again."
 
     return render(request, 'services/admin_login.html', {'error': error})
@@ -56,7 +53,7 @@ def request_update(request, pk):
         form = CleaningRequestForm(request.POST, instance=request_instance)
         if form.is_valid():
             form.save()
-            return redirect('request_list')
+            return redirect('request_list_admin')
     else:
         form = CleaningRequestForm(instance=request_instance)
 
@@ -66,8 +63,10 @@ def request_update(request, pk):
 def request_delete(request, pk):
     request_instance = get_object_or_404(CleaningRequest, pk=pk)
     if request.method == 'POST':
+        customer_name = request_instance.customer_name
         request_instance.delete()
-        return redirect('request_list')
+        messages.success(request, f"{customer_name} was successfully deleted!")
+        return redirect('request_list_admin')
     return render(request, 'services/request_confirm_delete.html', {'object': request_instance})
 
 # View to handle Main Page
