@@ -6,6 +6,8 @@ import sys
 
 def main():
     """Run administrative tasks."""
+    # This sets the default settings module for Django to use.
+    # In this case, it's using the settings from the "cleanhouse" project.
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cleanhouse.settings')
     try:
         from django.core.management import execute_from_command_line
@@ -17,6 +19,6 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-
+# This runs the main function only if this file is executed directly
 if __name__ == '__main__':
     main()

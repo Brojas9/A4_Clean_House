@@ -4,10 +4,11 @@ from .forms import CleaningRequestForm
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 
+# Password used for admin login.
+ADMIN_PASSWORD = 'NetworkingA4!'
 
-ADMIN_PASSWORD = 'NetworkingA4!'  # this must match exactly
-
-# Admin-only view to list all cleaning requests
+# === Admin Panel ===
+# This view shows all cleaning requests, but only to admin users
 def request_list_admin(request):
     if request.session.get('is_admin'):
         requests = CleaningRequest.objects.all()
@@ -19,7 +20,7 @@ def request_list_admin(request):
         'authenticated': False  # Show login form
     })
 
-
+# Admin login form view
 def admin_login(request):
     error = None
     if request.method == 'POST':
@@ -33,8 +34,7 @@ def admin_login(request):
 
     return render(request, 'services/admin_login.html', {'error': error})
 
-
-# View to handle the form for creating a new request
+# Form to create a new cleaning request
 def request_create(request):
     if request.method == 'POST':
         form = CleaningRequestForm(request.POST)
@@ -46,7 +46,7 @@ def request_create(request):
 
     return render(request, 'services/request_form.html', {'form': form})
 
-# View to handle editing a cleaning request
+# Form to edit an existing request
 def request_update(request, pk):
     request_instance = get_object_or_404(CleaningRequest, pk=pk)
     if request.method == 'POST':
@@ -59,7 +59,7 @@ def request_update(request, pk):
 
     return render(request, 'services/request_form.html', {'form': form})
 
-# View to handle deletion a cleaning request
+# Confirm and delete a cleaning request
 def request_delete(request, pk):
     request_instance = get_object_or_404(CleaningRequest, pk=pk)
     if request.method == 'POST':
@@ -69,7 +69,8 @@ def request_delete(request, pk):
         return redirect('request_list_admin')
     return render(request, 'services/request_confirm_delete.html', {'object': request_instance})
 
-# View to handle Main Page
+
+# Show the main landing page
 def main_page(request):
     return render(request, 'services/main_page.html')
 
@@ -85,4 +86,4 @@ def thank_you(request):
 # View to log out admin user
 def admin_logout(request):
     request.session.pop('is_admin', None)
-    return redirect('main_page')  # Or use 'home' depending on your URL name
+    return redirect('main_page')   # Go back to main page

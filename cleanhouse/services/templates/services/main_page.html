@@ -8,22 +8,27 @@
     <link rel="stylesheet" href="{% static 'services/landing.css' %}">
 </head>
 <body>
+    <!-- Hero section: this is the top area of the website -->
     <section class="hero">
+        <!-- Images of gloves to add style -->
         <img src="{% static 'services/glove-left.png' %}" alt="Glove Left" class="glove-left">
         <img src="{% static 'services/glove-right.png' %}" alt="Glove Right" class="glove-right">
 
+        <!-- Main heading and short description -->
         <h1>WORRY-FREE <br> HOME CLEANING</h1>
         <p>Professional cleaning for homes, offices, and more.</p>
         <p>Our team uses the best equipment and products to deliver high-quality cleaning services.</p>
+        <!-- Button to book a cleaning service -->
         <a href="{% url 'request_create' %}" class="btn btn-book">Book Cleaning</a>
+        <br><br>
+        <!-- Button for admin login -->
         <a href="{% url 'admin_login' %}" class="btn btn-outline-secondary mt-3">Admin Login</a>
-
-
     </section>
 
-
+    <!-- Gallery section: shows images of past cleaning jobs -->
     <section class="gallery">
         <h2>Our Work</h2>
+        <!-- Grid layout for displaying multiple images -->
         <div class="gallery-grid">
             <img src="{% static 'services/images/clean1.jpg' %}" alt="Clean Example">
             <img src="{% static 'services/images/clean2.jpg' %}" alt="Clean Example">
@@ -36,9 +41,11 @@
         </div>
     </section>
 
-    
+    <!-- Services section: describes the types of cleaning offered -->
     <section class="services">
         <h2>Cleaning Services</h2>
+
+         <!-- List of home cleaning options -->
         <div class="service-category">
             <h3>Home General Cleaning</h3>
             <ul>
@@ -47,6 +54,7 @@
                 <li>Deep cleaning garage</li>
             </ul>
         </div>
+         <!-- List of office cleaning options -->
         <div class="service-category">
             <h3>Office General Cleaning</h3>
             <ul>
@@ -60,12 +68,13 @@
     </section>
     
     
-    <!-- Lightbox Modal -->
+    <!-- Lightbox popup: shows image in a bigger size when clicked -->
     <div id="lightbox" onclick="closeLightbox()">
         <span class="close">&times;</span>
         <img id="lightbox-img" src="" alt="Preview">
     </div>
-
+    
+    <!-- JavaScript for gallery lightbox feature -->
     <script src="{% static 'services/gallery.js' %}"></script>
 
 </body>

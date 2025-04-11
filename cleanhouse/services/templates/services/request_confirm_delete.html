@@ -16,9 +16,10 @@
                 <p>Are you sure you want to delete the request for <strong>{{ object.customer_name }}</strong>?</p>
                 <form method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-danger">Yes</button>
-                    <a href="{% url 'request_list_admin' %}" class="btn btn-secondary ms-2">No</a>
+                    <button type="submit" class="btn btn-danger btn-equal">Yes</button>
+                    <a href="{% url 'request_list_admin' %}" class="btn btn-secondary btn-equal ms-2">No</a>
                 </form>
+                
             </div>
         </div>
     </div>

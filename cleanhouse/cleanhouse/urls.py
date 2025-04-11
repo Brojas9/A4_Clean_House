@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from services import views
 
-
+# This list defines which URLs will lead to which views or apps
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main_page, name='main_page'), # main page as the default
@@ -29,5 +29,7 @@ urlpatterns = [
     
 ]
 
+# This part allows Django to serve static files (CSS, JS, images) during development
+# It only runs if DEBUG = True in settings.py
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
