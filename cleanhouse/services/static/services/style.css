@@ -1,4 +1,3 @@
-/* === main container area of the page === */
 body.container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f6f9fc;
@@ -7,7 +6,6 @@ body.container {
     color: #2c3e50;
 }
 
-/* Card layout (like boxes around content) */
 .card {
     background: #ffffff;
     padding: 2rem;
@@ -17,24 +15,20 @@ body.container {
     box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
-/* This adds space below all h2 headings */
 h2 {
     margin-bottom: 1.5rem;
 }
 
-/* Adds spacing under form inputs and groups them */
 .form-group {
     margin-bottom: 1.2rem;
 }
 
-/* Styles the label of each form input */
 .form-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 0.3rem;
 }
 
-/* Styles for all text inputs and text areas */
 input, textarea, select {
     width: 100%;
     padding: 0.6rem;
@@ -44,12 +38,10 @@ input, textarea, select {
     box-sizing: border-box;
 }
 
-/* Makes the text area taller */
 textarea {
     height: 100px;
 }
 
-/* This is the main style for blue buttons */
 .btn {
     background-color: #3498db;
     color: white;
@@ -59,24 +51,21 @@ textarea {
     cursor: pointer;
 }
 
-/* Changes color when mouse is on top of the button */
 .btn:hover {
     background-color: #2980b9;
 }
 
-/* Basic style for links */
 .link {
     color: #3498db;
     text-decoration: none;
     font-size: 0.95rem;
 }
 
-/* Adds underline when hovering over a link */
 .link:hover {
     text-decoration: underline;
 }
 
-/* Special card style for delete warnings */
+/* Danger card styling */
 .card.danger {
     background-color: #fff0f0;
     border-left: 6px solid #e74c3c;
@@ -86,7 +75,7 @@ textarea {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Red delete button */
+/* Danger button */
 .btn-danger {
     background-color: #e74c3c;
     color: white;
@@ -97,19 +86,6 @@ textarea {
     margin-right: 10px;
 }
 
-/* Slightly darker red when hovering on delete button */
 .btn-danger:hover {
     background-color: #c0392b;
-}
-
-.top-right {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    z-index: 100;
-}
-
-
-body {
-    position: relative;
 }

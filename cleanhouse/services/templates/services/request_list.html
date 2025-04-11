@@ -10,7 +10,9 @@
     <div class="container my-5">
 
         {% if not authenticated %}
+            <!-- If the user is NOT logged in as admin, show login form -->
             <h2 class="text-center mt-4 text-primary">Admin Access Required</h2>
+            <!-- Show error message if password was incorrect -->
             {% if error %}
                 <p class="text-danger text-center">{{ error }}</p>
             {% endif %}
